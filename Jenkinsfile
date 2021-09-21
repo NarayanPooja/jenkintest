@@ -1,4 +1,4 @@
-environment {
+pipeline {
     registry = "poojansds/webapp:v1"
     dockerImage = ""
   }
