@@ -1,4 +1,4 @@
- environment {
+environment {
     registry = "poojansds/webapp:v1"
     dockerImage = ""
   }
@@ -7,24 +7,26 @@
 
   stages {
 
-    stage('Checkout Source') {
+    stage('Cloning our Git') {
       steps {
+       echo 'cloning'
         git 'https://github.com/NarayanPooja/jenkintest'
       }
     }
 
     stage('Build image') {
       steps{
+         echo 'Building image..'
         script {
           dockerImage = docker.build registry + ":$BUILD_NUMBER"
         }
       }
     }
 
-    stage('Push Image') {
+    stage('Deploy') {
       steps{
         script {
-          docker.withRegistry( "" ) {
+          docker.withRegistry( "", registryCredential ) {
             dockerImage.push()
           }
         }
@@ -36,4 +38,3 @@
   }
 
 }
-
