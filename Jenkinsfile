@@ -12,7 +12,9 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-          echo "Building"
+          sh ''' 
+              docker --version
+              '''
         }
       }
     }
