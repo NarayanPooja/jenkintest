@@ -1,10 +1,4 @@
 pipeline {
-
-  environment {
-    registry = "poojansds/webapp"
-    dockerImage = ""
-  }
-
   agent any
 
   stages {
