@@ -13,7 +13,7 @@ pipeline {
       steps{
         script {
           sh ''' 
-              docker --version
+              sudo docker --version
               '''
         }
       }
