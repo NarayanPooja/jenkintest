@@ -12,7 +12,7 @@ pipeline {
     stage('Build image') {
       steps{
         script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+          echo "Building"
         }
       }
     }
@@ -20,9 +20,7 @@ pipeline {
     stage('Push Image') {
       steps{
         script {
-          docker.withRegistry( "" ) {
-            dockerImage.push()
-          }
+          echo "Pushing"
         }
       }
     }
@@ -30,7 +28,7 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-          kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
+          echo "Deploying"
         }
       }
     }
