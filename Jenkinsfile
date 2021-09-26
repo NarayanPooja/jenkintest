@@ -19,8 +19,6 @@ spec:
       mountPath: /kaniko/.docker
   volumes:
     - name: kaniko-secret
-      secret:
-        secretName: regcred
         items:
           - key: .dockerconfigjson
             path: config.json
