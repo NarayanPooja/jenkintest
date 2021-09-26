@@ -1,7 +1,7 @@
-FROM alpine:latest
+FROM centos:latest
 
 RUN yum install httpd -y
 
-COPY website/  /var/www/html
+COPY ./index.html  /var/www/html
 
 CMD /usr/sbin/httpd -DFOREGROUND
