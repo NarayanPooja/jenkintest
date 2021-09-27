@@ -45,17 +45,18 @@ spec:
       }
      stage("Deployment") {
           steps {
+             sshagent(credentials: ["github-ssh-key"]) {
                 git branch: 'master', url: 'https://github.com/NarayanPooja/Jenkindeploy.git'
                sh '''
                   git config --global user.email "poojanarayan0805@gmail.com"
                   git config --global user.name NarayanPooja
-                  git remote add origin https://github.com/NarayanPooja/Jenkindeploy.git
                   sed -i "s/webapp:.*/webapp:${BUILD_NUMBER}/g" deployment/deployment.yml
                   git commit -am "${BUILD_NUMBER}"
                   ls
                   git push --force origin master
                  '''
-        }  
+        } 
+          }
        }
      }
 }
