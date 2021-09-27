@@ -46,7 +46,8 @@ spec:
      stage("Deployment") {
           steps {
              sshagent(credentials: ["github-ssh-key"]) {
-                git branch: 'master', url: 'https://github.com/NarayanPooja/Jenkindeploy.git'
+                git branch: 'master',credentialsId: 'github-ssh-key', url: 'https://github.com/NarayanPooja/Jenkindeploy.git'
+                
                sh '''
                   git config --global user.email "poojanarayan0805@gmail.com"
                   git config --global user.name narayanpooja
