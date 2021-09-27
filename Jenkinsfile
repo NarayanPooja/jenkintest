@@ -46,11 +46,11 @@ spec:
      stage("Deployment") {
           steps {
              sshagent(credentials: ["github-ssh-key"]) {
-                git branch: 'master',credentialsId: 'github-ssh-key', url: 'https://github.com/NarayanPooja/Jenkindeploy.git'
+                git branch: 'master',credentialsId: 'github-ssh-key', url: 'git@github.com:NarayanPooja/Jenkindeploy.git'
                 
                sh '''
                   git config --global user.email "poojanarayan0805@gmail.com"
-                  git config --global user.name narayanpooja
+                  git config --global user.name NarayanPooja
                   sed -i "s/webapp:.*/webapp:${BUILD_NUMBER}/g" deployment/deployment.yml
                   git commit -am "${BUILD_NUMBER}"
                   ls
