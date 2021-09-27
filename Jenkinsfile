@@ -49,6 +49,7 @@ spec:
                sh '''
                   git config --global user.email "poojanarayan0805@gmail.com"
                   git config --global user.name NarayanPooja
+                  git remote add origin https://github.com/NarayanPooja/Jenkindeploy.git
                   sed -i "s/webapp:.*/webapp:${BUILD_NUMBER}/g" deployment/deployment.yml
                   git commit -am "${BUILD_NUMBER}"
                   ls
