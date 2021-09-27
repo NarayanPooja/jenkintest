@@ -1,7 +1,2 @@
-FROM centos:latest
-
-RUN yum install httpd -y
-
-COPY ./index.html  /var/www/html
-
-CMD /usr/sbin/httpd -DFOREGROUND
+FROM httpd:2.4
+COPY ./index.html /usr/local/apache2/htdocs/
