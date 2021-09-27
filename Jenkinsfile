@@ -45,11 +45,11 @@ spec:
       }
      stage("Deployment") {
           steps {
-                git branch: 'master', url: 'https://github.com/NarayanPooja/jenkintest.git'
+                git branch: 'master', url: 'https://github.com/NarayanPooja/aargocd.git'
                sh '''
                   git config --global user.email "poojanarayan0805@gmail.com"
                   git config --global user.name NarayanPooja
-                  sed -i "s/alpine-webserver:.*/webapp:${BUILD_NUMBER}/g" deployment/deployment.yaml
+                  sed -i "s/webapp:.*/webapp:${BUILD_NUMBER}/g" deployment/deployment.yml
                   git commit -am "${BUILD_NUMBER}"
                   ls
                   git push --force origin master
