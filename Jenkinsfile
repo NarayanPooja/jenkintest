@@ -45,7 +45,7 @@ spec:
       }
      stage("Deployment") {
           steps {
-                git branch: 'master', url: 'https://github.com/NarayanPooja/aargocd.git'
+                git branch: 'master', url: 'https://github.com/NarayanPooja/Jenkindeploy.git'
                sh '''
                   git config --global user.email "poojanarayan0805@gmail.com"
                   git config --global user.name NarayanPooja
