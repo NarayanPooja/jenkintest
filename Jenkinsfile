@@ -49,7 +49,7 @@ spec:
                 git branch: 'master', url: 'https://github.com/NarayanPooja/Jenkindeploy.git'
                sh '''
                   git config --global user.email "poojanarayan0805@gmail.com"
-                  git config --global user.name NarayanPooja
+                  git config --global user.name narayanpooja
                   sed -i "s/webapp:.*/webapp:${BUILD_NUMBER}/g" deployment/deployment.yml
                   git commit -am "${BUILD_NUMBER}"
                   ls
