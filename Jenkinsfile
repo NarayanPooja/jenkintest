@@ -51,7 +51,7 @@ spec:
                sh '''
                   git config --global user.email "poojanarayan0805@gmail.com"
                   git config --global user.name NarayanPooja
-                  sed -i "s/webapp:.*/webapp:${BUILD_NUMBER}/g" deployment/deployment.yml
+                  sed -i "s/webapp:.*/webapp:${BUILD_NUMBER}/g" deployment/deployment.yaml
                   git commit -am "${BUILD_NUMBER}"
                   ls
                   git push --force origin master
