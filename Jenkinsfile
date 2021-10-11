@@ -43,6 +43,12 @@ spec:
                
         }
       }
+     stage('Analyze with Anchore plugin') {
+         steps {
+            writeFile file: 'anchore_images', text: 'docker.io/poojansds/webapp:v2'
+            anchore name: 'anchore_images'
+         }
+      }   
      stage("Deployment") {
           steps {
              sshagent(credentials: ["github-ssh-key"]) {
