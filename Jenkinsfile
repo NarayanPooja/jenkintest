@@ -46,7 +46,7 @@ spec:
      stage('Analyze with Anchore plugin') {
          
         steps {
-            writeFile file: 'anchore_images',  text: 'docker.io/poojansds/webapp:${BUILD_NUMBER}'
+            writeFile file: 'anchore_images',  text: "docker.io/poojansds/webapp:${BUILD_NUMBER}"
                  
             anchore name: 'anchore_images'
          }
