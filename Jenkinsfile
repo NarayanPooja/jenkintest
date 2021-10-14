@@ -48,7 +48,7 @@ spec:
         steps {
             writeFile file: 'anchore_images', 
                sh '''
-                  docker.io/poojansds/webapp:${.BUILD_NUMBER}
+                  docker.io/poojansds/webapp:${BUILD_NUMBER}
                   '''
             anchore name: 'anchore_images'
          }
